@@ -20,3 +20,6 @@ jobs:
 
       - name: Run AWS CLI command
         run: aws help
+
+      - name: Run AWS CLI S3 List command
+        run: aws s3 ls
