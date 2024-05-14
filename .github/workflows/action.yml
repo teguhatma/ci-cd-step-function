@@ -14,4 +14,4 @@ jobs:
           AWS_DEFAULT_REGION: "ap-southeast-1"
 
       - name: Run AWS CLI command
-        run: aws help
+        run: aws s3 ls
