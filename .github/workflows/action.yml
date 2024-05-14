@@ -1,11 +1,14 @@
 on:
   push:
     branches: ["main"]
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
       - name: AWS CLI v2
         uses: imehedi/actions-awscli-v2@latest
         env:
@@ -14,4 +17,8 @@ jobs:
           AWS_DEFAULT_REGION: "ap-southeast-1"
 
       - name: Run AWS CLI command
-        run: aws s3 ls
+        run: aws help
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "ap-southeast-1"
